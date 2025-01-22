@@ -19,7 +19,7 @@ body {
   background-size: 150%;
   background-position: calc(50% - var(--client-x, 0) * 2%) calc(50% - var(--client-y, 0) * 2%);
   will-change: background-position;
-  padding: 36px;
+  padding: 64px;
 }
 
 * {

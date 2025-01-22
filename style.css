@@ -15,11 +15,11 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #080a0f;
   color: #f8f9fa;
-  background-image: url("https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/227300/926b580739fe8c295a0ef0a4a9a59af89cc49868.jpg");
-  background-size: 150%;
+  background-image: linear-gradient(to left, rgba(8, 10, 15, 0.6), rgba(8, 10, 15, 0.6)), url("https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/227300/926b580739fe8c295a0ef0a4a9a59af89cc49868.jpg");
+  background-size: cover;
   background-position: calc(50% - var(--client-x, 0) * 2%) calc(50% - var(--client-y, 0) * 2%);
   will-change: background-position;
-  padding: 64px;
+  padding: clamp(32px, 5%, 64px);
 }
 
 * {
@@ -53,6 +53,18 @@ main .userInfo {
 main .userInfo2 {
   display: flex;
   gap: 32px;
+}
+@media screen and (max-width: 600px) {
+  main .userInfo2 {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .userInfo2, main .userInfo2 * {
+    text-align: center;
+  }
+  main .userInfo2 .flex {
+    justify-content: center;
+  }
 }
 main .userInfo2 > div {
   display: flex;
@@ -178,7 +190,7 @@ p.centred {
   border-radius: 8px;
   text-decoration: none;
   color: inherit;
-  transition: 135ms ease outline;
+  transition: 135ms ease outline, 350ms ease background-size;
 }
 .itemGrid > div::after {
   content: "";
@@ -193,6 +205,7 @@ p.centred {
 }
 .itemGrid > div:hover {
   outline: solid 1px #696a6f;
+  background-size: calc(var(--s, 200px) * 1.01 + 20px);
 }
 
 .socialGrid {
